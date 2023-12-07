@@ -1,7 +1,7 @@
 from cybulde.config_schemas.config_schema import Config
 from cybulde.utils.config_utils import get_config
 from cybulde.utils.utils import get_logger
-from cybulde.utils.data_utils import initialize_dvc
+from cybulde.utils.data_utils import initialize_dvc,initialize_dvc_storage
 from pathlib import Path
 
 
@@ -9,6 +9,8 @@ from pathlib import Path
 def version_data(config: Config) -> None:
     # logger = get_logger(Path(__file__).name)
     initialize_dvc()
+    initialize_dvc_storage(dvc_remote_name=config.dvc_remote_name,
+                           dvc_remote_url=config.dvc_remote_url)
     # print(config)
 
 
